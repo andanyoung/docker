@@ -1,5 +1,7 @@
 # Docker-compose 搭建 ElasticSearch、Kibana
 
+![Docker-compose 搭建 ElasticSearch、Kibana](https://img-blog.csdnimg.cn/20210310170914139.jpeg)
+
 ## [强力推荐 史上最全的 elasticsearch 教程](https://blog.csdn.net/agonie201218/category_9604962.html)
 
 ## 单机模式
