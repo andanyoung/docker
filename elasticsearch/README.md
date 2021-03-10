@@ -1,6 +1,6 @@
-# Docker-compose 搭建ElasticSearch、Kibana
+# Docker-compose 搭建 ElasticSearch、Kibana
 
-
+## [强力推荐 史上最全的 elasticsearch 教程](https://blog.csdn.net/agonie201218/category_9604962.html)
 
 ## 单机模式
 
@@ -10,9 +10,9 @@
 docker pull docker.elastic.co/elasticsearch/elasticsearch:7.5.2
 ```
 
-### 开始单node模式
+### 开始单 node 模式
 
-- 1. 使用docker
+- 1. 使用 docker
 
 ```sh
 docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.5.2
@@ -22,8 +22,7 @@ docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=sin
 docker run --link elasticsearch:elasticsearch -p 5601:5601 kibana:7.5.2
 ```
 
-- 2. 使用docker-compose
-
+- 2. 使用 docker-compose
 
 ```
 version: '3.7'
@@ -59,7 +58,7 @@ services:
 
 > 当然 `volumes`等可以自行配置
 
-``` sh
+```sh
 version: '3.7'
 
 volumes:
@@ -165,7 +164,7 @@ vm.max_map_count=262144
 
 > 启动配置
 
-``` sh
+```sh
 sysctl -w vm.max_map_count=262144
 ```
 
@@ -173,7 +172,7 @@ sysctl -w vm.max_map_count=262144
 
 > 启动命令行执行
 
-``` sh
+```sh
   screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
 ```
 
@@ -184,7 +183,7 @@ sysctl -w vm.max_map_count=262144
 ```
 
 - Windows and macOs with Docker Desktop
-  通过docker-machine进行设置
+  通过 docker-machine 进行设置
 
 ```sh
 docker-machine ssh
@@ -193,7 +192,7 @@ sudo sysctl -w vm.max_map_count=262144
 
 - Windows with Docker Desktop WSL2 Backend
 
-``` sh
+```sh
 wsl -d docker-desktop
 sysctl -w vm.max_map_count=262144
 ```

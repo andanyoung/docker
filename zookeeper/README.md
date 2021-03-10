@@ -2,7 +2,7 @@
 
 ![zookeeper](https://raw.githubusercontent.com/docker-library/docs/f906e95d1c27856aa79ea1bd8600da51466e7b0b/zookeeper/logo.png)
 
-[zookeeper 教程](https://blog.csdn.net/agonie201218/category_10868340.html)
+[强力推荐 zookeeper 教程](https://blog.csdn.net/agonie201218/category_10868340.html)
 
 ## 单机部署模式
 
