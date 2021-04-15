@@ -17,6 +17,7 @@ services:
     volumes:
       - ./volumes/data:/usr/share/elasticsearch/data
       - ./volumes/config:/usr/share/elasticsearch/config
+      - ./volumes/plugins:/usr/share/elasticsearch/plugins
 
   kibana:
     container_name: kibana
