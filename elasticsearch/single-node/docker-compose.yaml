@@ -15,9 +15,9 @@ services:
       - discovery.type=single-node
       - node.name=single-node-elastic
     volumes:
-      - ./volumes/data:/usr/share/elasticsearch/data
-      - ./volumes/config:/usr/share/elasticsearch/config
-      - ./volumes/plugins:/usr/share/elasticsearch/plugins
+      - ./volumes/es/data:/usr/share/elasticsearch/data
+      - ./volumes/es/config:/usr/share/elasticsearch/config
+      - ./volumes/es/plugins:/usr/share/elasticsearch/plugins
 
   kibana:
     container_name: kibana
@@ -26,3 +26,5 @@ services:
       - 5601:5601
     networks:
       - ES
+    volumes:
+      - ./volumes/kibana/config:/usr/share/kibana/config
