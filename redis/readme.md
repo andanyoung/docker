@@ -77,3 +77,25 @@ docker run -v D:/workspace/docker/github-docker/redis/sentinel/redis-6381/config
 
 - `Failed trying to load the MASTER synchronization DB from disk`
   在 windows 中不能将`/data` 目录挂载出来，不然会有权限问题
+
+## 哨兵配置
+
+> 我们把监听的端口修改成 6379，并且加上权值为 2，这里的权值，是用来计算我们需要将哪一台服务器升级升主服务器
+
+```
+sentinel monitor mymaster 127.0.0.1 6379 2
+```
+
+### 启动 Sentinel
+
+```
+docker run -v D:/workspace/docker/github-docker/redis/sentinel/redis-6379/config:/usr/local/etc/redis -p 26379:26379 --name sentinel-26379 -d redis:6.2 redis-sentinel /usr/local/etc/redis/sentinel.conf
+```
+
+```
+docker run -v D:/workspace/docker/github-docker/redis/sentinel/redis-6380/config:/usr/local/etc/redis -p 26380:26379 --name sentinel-26380 -d redis:6.2 redis-sentinel /usr/local/etc/redis/sentinel.conf
+```
+
+```
+docker run -v D:/workspace/docker/github-docker/redis/sentinel/redis-6381/config:/usr/local/etc/redis -p 26381:26379 --name sentinel-26381 -d redis:6.2 redis-sentinel /usr/local/etc/redis/sentinel.conf
+```
