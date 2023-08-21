@@ -6,6 +6,14 @@ docker pull mysql
 #docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 docker run --name mysql5.7 -p 3306:3306  -v mysql57:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
 ```
+```
+docker run -p 3306:3306 --name mysql --restart=always --privileged=true \
+-v /home/software/data/mysql/log:/var/log/mysql \
+-v /home/software/data/mysql/data:/var/lib/mysql \
+-v /home/software/data/mysql/conf:/etc/mysql/conf.d  \
+-v /etc/localtime:/etc/localtime:ro \
+-e MYSQL_ROOT_PASSWORD=TNjddIq123 -d mysql:5.7
+```
 
 ## windows
 > 错误
