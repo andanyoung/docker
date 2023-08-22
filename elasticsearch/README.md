@@ -17,12 +17,12 @@ docker pull docker.elastic.co/elasticsearch/elasticsearch:7.5.2
 - 1. 使用 docker
 
 ```sh
-docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -d docker.elastic.co/elasticsearch/elasticsearch:7.5.2
 ```
 
 > 挂载data和config目录
 ```sh 
-docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node"  -e ES_SETTING_BOOTSTRAP_MEMORY__LOCK=true. -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -v /home/software/data/elasticsearch/data:/usr/share/elasticsearch/data -v full_path_to/custom_elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml docker.elastic.co/elasticsearch/elasticsearch:7.17.12 /bin/bash -c 'ulimit -Hn && ulimit -Sn && ulimit -Hu && ulimit -Su'
+docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node"  -e ES_SETTING_BOOTSTRAP_MEMORY__LOCK=true. -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -v /home/software/data/elasticsearch/data:/usr/share/elasticsearch/data -v full_path_to/custom_elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -d docker.elastic.co/elasticsearch/elasticsearch:7.17.12
 ```
 
 
