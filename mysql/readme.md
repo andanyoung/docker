@@ -14,6 +14,7 @@ docker run -p 3306:3306 --name mysql --restart=always --privileged=true \
 -v /etc/localtime:/etc/localtime:ro \
 -e MYSQL_ROOT_PASSWORD=TNjddIq123 -d mysql:5.7
 ```
+> -v /home/software/data/mysql/conf/my.cnf:/etc/my.cnf   这种方式需要提前创建好文件。`touch my.cnf`。如果不创建，宿主机生成的my.cnf是目录。 容器中的my.cnf是文件，但是宿主机的my.cnf是目录
 
 ## windows
 > 错误
