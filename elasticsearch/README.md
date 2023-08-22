@@ -1,5 +1,5 @@
 # Docker-compose 搭建 ElasticSearch、Kibana
-
+![Docker 官方 安装](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html)
 ![Docker-compose 搭建 ElasticSearch、Kibana](https://img-blog.csdnimg.cn/20210310170914139.jpeg)
 
 ## [强力推荐 史上最全的 elasticsearch 教程](https://blog.csdn.net/agonie201218/category_9604962.html)
@@ -19,6 +19,12 @@ docker pull docker.elastic.co/elasticsearch/elasticsearch:7.5.2
 ```sh
 docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.5.2
 ```
+
+> 挂载data和config目录
+```sh 
+docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node"  -e ES_SETTING_BOOTSTRAP_MEMORY__LOCK=true. -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -v /home/software/data/elasticsearch/data:/usr/share/elasticsearch/data -v full_path_to/custom_elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml docker.elastic.co/elasticsearch/elasticsearch:7.17.12 /bin/bash -c 'ulimit -Hn && ulimit -Sn && ulimit -Hu && ulimit -Su'
+```
+
 
 ```sh
 docker run --link elasticsearch:elasticsearch -p 5601:5601 kibana:7.5.2
