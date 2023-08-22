@@ -16,6 +16,11 @@ docker run --name some-redis -d redis
 docker run --name some-redis -d redis redis-server --appendonly yes
 ```
 
+## 使用配置文件方式运行
+```
+docker run -p 6379:6379 -v /home/software/data/redis/conf:/usr/local/etc/redis -v /home/software/data/redis/data:/data --name redis -d redis:6.2.13 redis-server /usr/local/etc/redis/redis.conf
+```
+
 ## 使用`redis-cli`链接
 
 ```
