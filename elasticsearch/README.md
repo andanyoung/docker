@@ -22,7 +22,7 @@ docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=sin
 
 > 挂载data和config目录
 ```sh 
-docker run --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node"  -e ES_SETTING_BOOTSTRAP_MEMORY__LOCK=true. -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -v /home/software/data/elasticsearch/data:/usr/share/elasticsearch/data -v full_path_to/custom_elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -d docker.elastic.co/elasticsearch/elasticsearch:7.17.12
+docker run --name=elasticsearch --restart=on-failure:3 -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e ES_SETTING_BOOTSTRAP_MEMORY\_\_LOCK=true. -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -v /home/data/elasticsearch/data:/usr/share/elasticsearch/data -v /home/data/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /home/data/elasticsearch/plugins:/usr/share/elasticsearch/plugins -d docker.elastic.co/elasticsearch/elasticsearch:7.17.12
 ```
 
 
