@@ -10,7 +10,7 @@ docker run --name mysql5.7 -p 3306:3306  -v mysql57:/var/lib/mysql -e MYSQL_ROOT
 docker run -p 3306:3306 --name mysql --restart=always --privileged=true \
 -v /home/software/data/mysql/log:/var/log/mysql \
 -v /home/software/data/mysql/data:/var/lib/mysql \
--v /home/software/data/mysql/conf:/etc/mysql/conf.d  \
+-v /home/software/data/mysql/conf:/etc/my.cnf.d  \
 -v /etc/localtime:/etc/localtime:ro \
 -e MYSQL_ROOT_PASSWORD=TNjddIq123 -d mysql:5.7
 ```
